@@ -1,5 +1,18 @@
 @php
-    $socials = [['label' => 'Instagram'], ['label' => 'TikTok'], ['label' => 'YouTube']];
+    $socials = [
+        [
+            'label' => 'Instagram',
+            'link' => 'https://www.instagram.com/amur.udinus',
+        ],
+        [
+            'label' => 'TikTok',
+            'link' => 'https://www.tiktok.com/@amur.udinus',
+        ],
+        [
+            'label' => 'YouTube',
+            'link' => 'https://www.youtube.com/@amurudinus',
+        ],
+    ];
 @endphp
 
 <section class="py-20 px-20 bg-white">
@@ -9,7 +22,7 @@
             <!-- LEFT -->
             <div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
-                    PLATFORM <span class="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">MEDIA SOSIAL.</span>
+                    PLATFORM <span class="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">MEDIA SOSIAL</span>
                 </h2>
 
                 <p class="text-gray-500 mb-8 text-sm md:text-base leading-relaxed">
@@ -19,7 +32,8 @@
                 <div class="flex items-center gap-8">
 
                     @foreach ($socials as $s)
-                        <div class="flex flex-col items-center gap-2 group">
+                        <a href="{{ $s['link'] }}" target="_blank"
+                            class="flex flex-col items-center gap-2 group">
 
                             <!-- ICON CONTAINER -->
                             <div
@@ -74,7 +88,7 @@
                                 {{ $s['label'] }}
                             </span>
 
-                        </div>
+                        </a>
                     @endforeach
 
                 </div>

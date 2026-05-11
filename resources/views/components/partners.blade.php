@@ -1,9 +1,10 @@
 @php
+    $mainPartner = [
+        'name' => 'Universitas Dian Nuswantoro',
+        'logo' => 'udinus-logo.png',
+    ];
+
     $partners = [
-        [
-            'name' => 'Universitas Dian Nuswantoro',
-            'logo' => 'udinus-logo.png',
-        ],
         [
             'name' => 'TVKU',
             'logo' => 'tvku-logo.png',
@@ -27,7 +28,7 @@
     <div class="container mx-auto px-4 text-center">
 
         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
-            MITRA & <span class="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">PENDUKUNG KAMI.</span>
+            MITRA
         </h2>
 
         <p class="text-gray-500 max-w-2xl mx-auto mb-12 text-sm md:text-base">
@@ -35,21 +36,40 @@
             untuk mempromosikan nilai-nilai kebaikan dan keislaman di seluruh negeri.
         </p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-center">
+        <!-- LOGO UTAMA -->
+        <div class="flex justify-center mb-12">
+
+            <div class="flex flex-col items-center gap-4 group">
+
+                <div
+    class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center
+           group-hover:scale-110 transition overflow-hidden">
+
+    <img src="{{ asset('assets/' . $mainPartner['logo']) }}"
+        class="w-14 h-14 object-contain">
+
+</div>
+
+                <span class="text-sm text-gray-700 font-semibold">
+                    {{ $mainPartner['name'] }}
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- 4 LOGO BAWAH -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
 
             @foreach ($partners as $partner)
                 <div class="flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-white transition group">
 
                     <div
-                        class="w-20 h-20 rounded-full bg-white shadow flex items-center justify-center group-hover:scale-110 transition overflow-hidden">
+                        class="w-24 h-24 rounded-full bg-white shadow flex items-center justify-center
+                               group-hover:scale-110 transition overflow-hidden">
 
-                        @if ($partner['logo'])
-                            <img src="{{ asset('assets/' . $partner['logo']) }}" class="w-12 h-12 object-contain">
-                        @else
-                            <span class="text-green-600 font-bold text-xl">
-                                {{ strtoupper(substr($partner['name'], 0, 1)) }}
-                            </span>
-                        @endif
+                        <img src="{{ asset('assets/' . $partner['logo']) }}"
+                            class="w-14 h-14 object-contain">
 
                     </div>
 
@@ -62,11 +82,16 @@
 
         </div>
 
-        <!-- Button Daftar Mitra -->
+        <!-- BUTTON -->
         <div class="mt-10">
             <a href="#"
-                class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 text-sm shadow-lg hover:shadow-blue-500/50 hover:scale-105">
+                class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600
+                       text-white font-semibold rounded-full hover:from-blue-600
+                       hover:to-indigo-700 transition-all duration-300 text-sm
+                       shadow-lg hover:shadow-blue-500/50 hover:scale-105">
+
                 DAFTAR MITRA
+
             </a>
         </div>
 

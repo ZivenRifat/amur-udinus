@@ -2,15 +2,27 @@
     <div class="container mx-auto flex items-center justify-between h-16 px-20">
 
         <!-- Logo -->
-        <div class="flex items-center gap-2">
-            <img src="{{ asset('assets/amur-logo.png') }}" class="h-10 w-10 object-contain">
-            <span class="font-bold text-lg">AMUR UDINUS</span>
-        </div>
+        <div class="flex items-center gap-3">
+
+        <!-- Logo UDINUS -->
+         <img src="{{ asset('assets/udinus-logo.png') }}"
+        class="h-10 w-10 object-contain">
+
+        <!-- Logo AMUR -->
+        <img src="{{ asset('assets/amur-logo.png') }}"
+        class="h-10 w-10 object-contain">
+
+        <!-- Text -->
+        <span class="font-bold text-lg">
+            AMUR UDINUS
+        </span>
+
+</div>
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
             @php
-                $navItems = ['BERANDA', 'SURAH', 'JUZ', 'AYAT POHON', 'TENTANG'];
+                $navItems = ['BERANDA', 'KOLEKSI', 'BERITA', 'MITRA', 'KONTRIBUTOR'];
             @endphp
 
             @foreach ($navItems as $item)
@@ -34,7 +46,7 @@
             <!-- CTA -->
             <a href="#"
                 class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full hover:from-blue-600 hover:to-blue-800 transition-all duration-300 text-sm shadow-lg hover:shadow-blue-500/50 hover:scale-105">
-                MULAI MENDENGARKAN
+                KONTRIBUTOR
             </a>
 
             <!-- Mobile Menu Button -->
@@ -49,7 +61,7 @@
     <div x-show="searchOpen" class="border-t px-4 py-3 bg-white">
         <div class="container mx-auto">
             <form class="flex gap-2">
-                <input type="text" placeholder="Cari Surah atau Juz..."
+                <input type="text" placeholder="Cari..."
                     class="flex-1 px-4 py-2 rounded-lg border text-sm">
                 <button class="px-4 py-2 bg-green-600 text-white rounded-lg text-sm">
                     Cari
@@ -67,7 +79,7 @@
         @endforeach
 
         <a href="#" class="block text-center px-5 py-2 bg-green-600 text-white rounded-full">
-            MULAI MENDENGARKAN
+            KONTRIBUTOR
         </a>
     </div>
 </header>
