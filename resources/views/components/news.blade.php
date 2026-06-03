@@ -26,7 +26,7 @@
     ];
 @endphp
 
-<section class="py-20 px-20 bg-white">
+<section id="berita" class="py-20 px-20 bg-white scroll-mt-20">
 
     <div class="container mx-auto px-4">
 

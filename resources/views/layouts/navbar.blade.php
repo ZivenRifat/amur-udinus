@@ -4,20 +4,20 @@
         <!-- Logo -->
         <div class="flex items-center gap-3">
 
-        <!-- Logo UDINUS -->
-         <img src="{{ asset('assets/udinus-logo.png') }}"
-        class="h-10 w-10 object-contain">
+            <!-- Logo UDINUS -->
+            <img src="{{ asset('assets/udinus-logo.png') }}"
+                class="h-10 w-10 object-contain">
 
-        <!-- Logo AMUR -->
-        <img src="{{ asset('assets/amur-logo.png') }}"
-        class="h-10 w-10 object-contain">
+            <!-- Logo AMUR -->
+            <img src="{{ asset('assets/amur-logo.png') }}"
+                class="h-10 w-10 object-contain">
 
-        <!-- Text -->
-        <span class="font-bold text-lg">
-            AMUR UDINUS
-        </span>
+            <!-- Text -->
+            <span class="font-bold text-lg">
+                AMUR UDINUS
+            </span>
 
-</div>
+        </div>
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
@@ -26,7 +26,8 @@
             @endphp
 
             @foreach ($navItems as $item)
-                <a href="#" class="text-sm font-medium text-gray-600 hover:text-blue-500 transition">
+                <a href="{{ $item == 'BERITA' ? '#berita' : '#' }}"
+                    class="text-sm font-medium text-gray-600 hover:text-blue-500 transition">
                     {{ $item }}
                 </a>
             @endforeach
@@ -73,7 +74,8 @@
     <!-- Mobile Nav -->
     <div x-show="mobileOpen" class="md:hidden border-t bg-white px-4 py-4 space-y-3">
         @foreach ($navItems as $item)
-            <a href="#" class="block text-sm text-gray-600 hover:text-green-600">
+            <a href="{{ $item == 'BERITA' ? '#berita' : '#' }}"
+                class="block text-sm text-gray-600 hover:text-green-600">
                 {{ $item }}
             </a>
         @endforeach
