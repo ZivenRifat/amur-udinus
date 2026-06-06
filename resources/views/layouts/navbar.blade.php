@@ -1,87 +1,67 @@
-<header x-data="{ mobileOpen: false, searchOpen: false }" class="sticky top-0 z-50 bg-white border-b">
-    <div class="container mx-auto flex items-center justify-between h-16 px-20">
+<header x-data="{ mobileOpen: false, searchOpen: false }" class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div class="container mx-auto flex items-center justify-between h-20 px-6 lg:px-20">
 
         <!-- Logo -->
         <div class="flex items-center gap-3">
-
             <!-- Logo UDINUS -->
-            <img src="{{ asset('assets/udinus-logo.png') }}"
-                class="h-10 w-10 object-contain">
-
+            <img src="{{ asset('assets/udinus-logo.png') }}" alt="Udinus" class="h-10 w-10 object-contain">
             <!-- Logo AMUR -->
-            <img src="{{ asset('assets/amur-logo.png') }}"
-                class="h-10 w-10 object-contain">
-
+            <img src="{{ asset('assets/amur-logo.png') }}" alt="A-Mur" class="h-10 w-10 object-contain">
             <!-- Text -->
-            <span class="font-bold text-lg">
-                AMUR UDINUS
-            </span>
-
+            <a href="{{ url('/') }}" class="font-bold text-xl">A-Mur Udinus</a>
         </div>
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
             @php
-                $navItems = ['BERANDA', 'KOLEKSI', 'BERITA', 'MITRA', 'KONTRIBUTOR'];
+                // Diperbarui agar navigasi berjalan baik dari halaman mana pun
+                $navItems = [
+                    'Beranda' => url('/'),
+                    'Koleksi' => route('collection.index'),
+                    'Berita' => route('news.index'),
+                    'Mitra' => route('partners'), // Mengarah ke halaman mitra
+                    'Kontributor' => route('contributors.index') // Mengarah ke halaman kontributor
+                ];
             @endphp
 
-            @foreach ($navItems as $item)
-                <a href="{{ $item == 'BERITA' ? '#berita' : '#' }}"
-                    class="text-sm font-medium text-gray-600 hover:text-blue-500 transition">
-                    {{ $item }}
+            @foreach ($navItems as $label => $link)
+                @php
+                    // Mengecek apakah URL saat ini sama dengan URL pada link navbar
+                    $isActive = request()->url() == $link;
+                @endphp
+                <a href="{{ $link }}" class="text-sm font-semibold transition-colors {{ $isActive ? 'text-primary' : 'text-gray-600 hover:text-primary' }}">
+                    {{ $label }}
                 </a>
             @endforeach
         </nav>
 
         <!-- Right -->
-        <div class="flex items-center gap-3">
-
-            <!-- Search Button -->
-            <button class="p-2 rounded-full hover:bg-gray-100 transition" @click="searchOpen = !searchOpen">
-                <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="M20 20l-3-3" />
-                </svg>
-            </button>
-
+        <div class="flex items-center gap-4">
             <!-- CTA -->
-            <a href="#"
-                class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full hover:from-blue-600 hover:to-blue-800 transition-all duration-300 text-sm shadow-lg hover:shadow-blue-500/50 hover:scale-105">
-                KONTRIBUTOR
+            <a href="{{ url('/#kontak') }}" class="hidden md:inline-block px-6 py-2.5 bg-primary text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-md hover:shadow-lg text-sm">
+                Gabung Mitra
             </a>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden p-2" @click="mobileOpen = !mobileOpen">
-                <span x-show="!mobileOpen">☰</span>
-                <span x-show="mobileOpen">✖</span>
+            <button class="md:hidden p-2 text-gray-600" @click="mobileOpen = !mobileOpen">
+                <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg x-show="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-        </div>
-    </div>
-
-    <!-- Search Bar -->
-    <div x-show="searchOpen" class="border-t px-4 py-3 bg-white">
-        <div class="container mx-auto">
-            <form class="flex gap-2">
-                <input type="text" placeholder="Cari..."
-                    class="flex-1 px-4 py-2 rounded-lg border text-sm">
-                <button class="px-4 py-2 bg-green-600 text-white rounded-lg text-sm">
-                    Cari
-                </button>
-            </form>
         </div>
     </div>
 
     <!-- Mobile Nav -->
-    <div x-show="mobileOpen" class="md:hidden border-t bg-white px-4 py-4 space-y-3">
-        @foreach ($navItems as $item)
-            <a href="{{ $item == 'BERITA' ? '#berita' : '#' }}"
-                class="block text-sm text-gray-600 hover:text-green-600">
-                {{ $item }}
+    <div x-show="mobileOpen" class="md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-4 shadow-lg absolute w-full">
+        @foreach ($navItems as $label => $link)
+            @php
+                $isActive = request()->url() == $link;
+            @endphp
+            <a href="{{ $link }}" class="block text-sm font-medium transition-colors {{ $isActive ? 'text-primary' : 'text-gray-700 hover:text-primary' }}">
+                {{ $label }}
             </a>
         @endforeach
-
-        <a href="#" class="block text-center px-5 py-2 bg-green-600 text-white rounded-full">
-            KONTRIBUTOR
+        <a href="{{ url('/#kontak') }}" class="block text-center px-5 py-3 bg-primary text-white rounded-full font-semibold">
+            Hubungi Kami
         </a>
     </div>
 </header>
