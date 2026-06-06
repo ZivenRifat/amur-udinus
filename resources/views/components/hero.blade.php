@@ -1,9 +1,11 @@
 <section x-data="{
     active: 0,
     slides: [
+        { image: '{{ asset('assets/bg amur.jpeg') }}', title: '' },
         { image: '{{ asset('assets/hero1.png') }}', title: '' },
         { image: '{{ asset('assets/hero2.png') }}', title: '' },
         { image: '{{ asset('assets/hero3.png') }}', title: '' }
+
     ],
     next() {
         this.active = (this.active + 1) % this.slides.length

@@ -45,9 +45,9 @@
             </button>
 
             <!-- CTA -->
-            <a href="#"
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNexmA98-QOGQhvnDBmTc1Cb6kyo8QjWSlBdQuidlMYW23hw/viewform?usp=dialog"
                 class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full hover:from-blue-600 hover:to-blue-800 transition-all duration-300 text-sm shadow-lg hover:shadow-blue-500/50 hover:scale-105">
-                KONTRIBUTOR
+                GABUNG MITRA
             </a>
 
             <!-- Mobile Menu Button -->
@@ -80,8 +80,8 @@
             </a>
         @endforeach
 
-        <a href="#" class="block text-center px-5 py-2 bg-green-600 text-white rounded-full">
-            KONTRIBUTOR
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNexmA98-QOGQhvnDBmTc1Cb6kyo8QjWSlBdQuidlMYW23hw/viewform?usp=dialog" class="block text-center px-5 py-2 bg-green-600 text-white rounded-full">
+            GABUNG MITRA
         </a>
     </div>
 </header>

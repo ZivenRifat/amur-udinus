@@ -18,10 +18,13 @@
             <div>
                 <h4 class="font-semibold mb-4">Hubungi Kami</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li>Udinus Studios</li>
+                    <li>UDINUS</li>
                     <li>Jl. Imam Bonjol No. 207</li>
-                    <li>Semarang, Jawa Tengah 50131</li>
-                    <li>info@amurudinus.ac.id</li>
+                    <li>Semarang, Jawa Tengah 50131.</li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=amur.udinus@gmail.com" target="_blank">
+    amur.udinus@gmail.com
+</a></li>
+                    <li>No. Hp: <a href="tel:0898756666">0898756666</a></li>
                 </ul>
             </div>
 

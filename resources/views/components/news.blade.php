@@ -1,21 +1,36 @@
 @php
     $berita = [
-        [
-            'title' => 'Amur Udinus Mencapai 1 Miliar Penayangan di YouTube.',
-            'date' => '15 Maret 2027',
-            'category' => 'Pencapaian'
-        ],
-        [
-            'title' => 'Rilis Spesial Ramadhan: Seluruh Juz Amma Telah Selesai.',
-            'date' => '1 Maret 2027',
-            'category' => 'Rilis'
-        ],
-        [
-            'title' => 'Amur Udinus Berkolaborasi dengan Universitas di Seluruh Nusantara.',
-            'date' => '20 Februari 2027',
-            'category' => 'Kolaborasi'
-        ]
-    ];
+    [
+        'title' => 'Manfaatkan Generative-AI, Udinus Luncurkan Inovasi A-Mur sebagai Pembelajaran Al-Qur’an Digital untuk Gen Z',
+        'date' => '06 Maret 2026',
+        'category' => 'Pencapaian',
+        'link' => 'https://dinus.ac.id/2026/03/manfaatkan-generative-ai-udinus-luncurkan-inovasi-a-mur-sebagai-pembelajaran-al-quran-digital-untuk-gen-z/'
+    ],
+    [
+        'title' => 'Tim PKM Amur Berfoto Bersama dengan Guru dan Siswa Setelah Memberikan Pelatihan di SMAN 3 Semarang',
+        'date' => '26 Mei 2026',
+        'category' => 'Rilis',
+        'link' => 'https://dinus.ac.id/2026/05/melalui-pkm-pusat-studi-csac-udinus-uji-skalabilitas-produksi-animasi-murottal-di-sekolah/tim-pkm-a-mur-berforo-bersama-dengan-guru-dan-siswa-setelah-memberikan-pelatihan-di-sman-3-semarang/'
+    ],
+    [
+        'title' => 'Melalui PKM, Pusat Studi CSAC Udinus Uji Skalabilitas Produksi Animasi Murottal di Sekolah',
+        'date' => '26 Mei 2026',
+        'category' => 'Kolaborasi',
+        'link' => 'https://dinus.ac.id/2026/05/melalui-pkm-pusat-studi-csac-udinus-uji-skalabilitas-produksi-animasi-murottal-di-sekolah/'
+    ],
+    [
+        'title' => 'Udinus Gandeng PP Pergunu, Hadirkan Training Animasi Murottal untuk Dakwah Digital',
+        'date' => '04 Maret 2026',
+        'category' => 'Kolaborasi',
+        'link' => 'https://dinus.ac.id/2026/03/udinus-gandeng-pp-pergunu-hadirkan-training-animasi-murottal-untuk-dakwah-digital/'
+    ],
+    [
+        'title' => 'Kumpulan Berita dan Informasi Animasi Murottal (A-MUR)',
+        'date' => '06 Maret 2026',
+        'category' => 'Kolaborasi',
+        'link' => 'https://dinus.ac.id/tag/murottal/'
+    ]
+];
 
     $agenda = [
         [
@@ -43,26 +58,28 @@
                 <div class="space-y-6">
 
                     @foreach($berita as $item)
-                        <div class="bg-white rounded-2xl border p-6 text-left
-                                    hover:shadow-xl transition-all
-                                    hover:-translate-y-1 cursor-pointer group">
+<a href="{{ $item['link'] }}" target="_blank" rel="noopener noreferrer">
+    <div class="bg-white rounded-2xl border p-6 text-left
+                hover:shadow-xl transition-all
+                hover:-translate-y-1 cursor-pointer group">
 
-                            <span class="inline-block px-3 py-1 text-xs font-medium
-                                        bg-green-100 text-green-600 rounded-full mb-4">
-                                {{ $item['category'] }}
-                            </span>
+        <span class="inline-block px-3 py-1 text-xs font-medium
+                    bg-green-100 text-green-600 rounded-full mb-4">
+            {{ $item['category'] }}
+        </span>
 
-                            <h3 class="font-bold text-gray-800 mb-4 leading-relaxed
-                                    group-hover:text-green-600 transition text-xl">
-                                {{ $item['title'] }}
-                            </h3>
+        <h3 class="font-bold text-gray-800 mb-4 leading-relaxed
+                group-hover:text-green-600 transition text-xl">
+            {{ $item['title'] }}
+        </h3>
 
-                            <p class="text-sm text-gray-500">
-                                {{ $item['date'] }}
-                            </p>
+        <p class="text-sm text-gray-500">
+            {{ $item['date'] }}
+        </p>
 
-                        </div>
-                    @endforeach
+    </div>
+</a>
+@endforeach
 
                 </div>
 
