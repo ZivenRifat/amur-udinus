@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id" class="scroll-smooth">
 <head>
-    <title>A-Mur Udinus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Mur Udinus | Animasi Murottal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#60A5FA',
+                        accent: '#FBBF24',
+                    }
+                }
+            }
         }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
     </style>
 </head>
-
-<body class="bg-gray-100">
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
 
     @include('layouts.navbar')
 
-    <main>
+    <main class="flex-grow">
         @yield('content')
     </main>
 
-    {{-- @include('layouts.footer') --}}
+    @include('layouts.footer')
 
 </body>
-
 </html>
